@@ -1,0 +1,16 @@
+{
+  "name": "blog",
+  "authors": [
+    "Eugeny Emelin <emelin.eug@ya.ru>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
