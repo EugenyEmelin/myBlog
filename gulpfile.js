@@ -36,14 +36,24 @@ gulp.task('img', function() {
 
 //RUn SERVER WITTH WATCHERS
 gulp.task('serve', ['css-libs', 'scripts'], function() {
-	browserSync.init({
-		server: "./app"
-	})	
+	// browserSync.init({
+		// server: "./app"
+	// })	
+	gulp.watch("app/sass/*.sass", ['css-libs'])
+	gulp.watch("app/js/*.js") /*.on('change', browserSync.reload)*/
+   	gulp.watch("app/*.html") /*.on('change', browserSync.reload)*/
+   	gulp.watch("app/*.php") /*.on('change', browserSync.reload)*/
+   	gulp.watch("app/css/*.css").on('change', browserSync.reload)
+})
+//watcher
+gulp.task('watch', function() {
 	gulp.watch("app/sass/*.sass", ['css-libs'])
 	gulp.watch("app/js/*.js").on('change', browserSync.reload)
    	gulp.watch("app/*.html").on('change', browserSync.reload)
+   	gulp.watch("app/*.php").on('change', browserSync.reload)
    	gulp.watch("app/css/*.css").on('change', browserSync.reload)
 })
+
 //SASS
 gulp.task('sass', function() {
 	return gulp.src('app/sass/*.sass')
@@ -79,7 +89,7 @@ gulp.task('css-libs', ['sass'], function() {
 //BUILD
 gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function() {
 	let buildCss = gulp.src([
-		'app/css/main.css',
+		'app/css/*.css',
 		'app/css/*.min.css'
 	])
 	.pipe(gulp.dest('build/css'))
