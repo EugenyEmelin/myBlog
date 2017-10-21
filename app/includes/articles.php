@@ -2,20 +2,25 @@
 require_once "db.php";
 function articles_list() {
 	global $dbh, $topics;
-	$sql = "SELECT `id`,`title`,`image`,`text`,`topic_id`,`pubdate`,`views` FROM articles";
+	// var_dump($topics);
+	if (isset($_GET['topic']) && $_GET['topic'] != 'all') {
+		$topic_get = $_GET['topic'];
+		$sql = "SELECT `id`,`title`,`image`,`text`,`topic_id`,`pubdate`,`views` FROM articles WHERE topic_id = :topic";
+	} else {
+		$sql = "SELECT `id`,`title`,`image`,`text`,`topic_id`,`pubdate`,`views` FROM articles";
+	}
 	$sth = $dbh->prepare($sql);
+	$sth->bindParam(':topic', $topic_get, PDO::PARAM_INT);
 	$sth->execute();
 	while ($article = $sth->fetch(PDO::FETCH_ASSOC)) {
+ 	 	$article_id = $article['id'];
 	?>
 	<div class="item">
  	 <div class="image">
- 	 	<?php 
- 	 		$article_img = !empty($article['image']) ? $article['image'] : 'article_default.png';
-    		echo "<img src=\"img/$article_img\">"
- 	 	?>
+    	<img src="img/<?php echo $article['image'] ? $article['image'] : 'article_default.png'; ?>">
  	 </div>
   	 <div class="content">
-  	   <a class="header"><?php echo $article['title']; ?></a>
+  	   <a href="?article=<?php echo $article_id; ?>" class="header"><?php echo $article['title']; ?></a>
   	   <div class="meta">
 
   	     	<!-- вывод категории -->
@@ -43,4 +48,5 @@ function articles_list() {
 <?php
 	}
 }
+// articles_list();
 ?>

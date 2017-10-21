@@ -1,6 +1,7 @@
 <?php 
 
 $config = [
+	'main_page' => 'index.php',
 	'title' => 'BLOG',
 	'vk_link' => 'https://vk.com/id17150827',
 	'github_link' => 'https://github.com/EugenyEmelin',
@@ -12,5 +13,5 @@ $config = [
 		'dbname' => 'blog'
 	]
 ];
-
+$main_page = $config['main_page'];
 ?>

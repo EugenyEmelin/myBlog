@@ -6,12 +6,11 @@ function topics_list() {
 	$sql = "SELECT `id`,`topic_name` FROM topics";
 	$sth = $dbh->prepare($sql);
 	$sth->execute();
-	// $topics = [];
-	echo "<a href=\"?allcategories\" class=\"item active topics_list\">Все категории</a>";
+	echo "<a href=\"?topic=all\" class=\"item active topic_item\">Все категории</a>";
 	while ($topic = $sth->fetch(PDO::FETCH_ASSOC)) {
 		$topics[] = $topic;
 	?>
-		 <a href="?<?php echo $topic['topic_name']; ?>" class="item topics_list"><?php echo $topic['topic_name']; ?></a>
+		 <a href="?topic=<?php echo $topic['id']; ?>" class="item topic_item"><?php echo $topic['topic_name']; ?></a>
 	<?php
 	}
 	return $topics;

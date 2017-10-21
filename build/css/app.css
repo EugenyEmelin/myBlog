@@ -65,7 +65,7 @@ body {
           flex-direction: row; }
 
 .articles-bar {
-  padding-top: 25px;
+  padding-top: 45px;
   border-right: 1px solid lightgrey;
   -webkit-box-flex: 3;
   -webkit-flex-grow: 3;
@@ -90,9 +90,3 @@ body {
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0; }
-
-.article_wrap {
-  padding: 0 40px; }
-
-.article_navigation {
-  margin-top: -25px !important; }

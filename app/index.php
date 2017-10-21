@@ -2,6 +2,7 @@
 require 'includes/config.php';
 require 'includes/topics.php';
 require 'includes/articles.php';
+require 'includes/article.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,34 +15,34 @@ require 'includes/articles.php';
 	<script src="libs/jquery/dist/jquery.min.js"></script>
 	<script src="../semantic/out/semantic.min.js"></script>
   <script src="js/ui-activator.js"></script>
+
 </head>
 <?php include "includes/header.php"; ?>
 <section class="content">
   <!-- categories -->
   <div class="categories">
-    <!-- <div class=""> -->
       <div class="ui small secondary fluid vertical menu">
         <?php 
           $topics = [];
           topics_list(); 
         ?>
       </div>
-    <!-- </div> -->
   </div>
-  <!-- end categories -->
 
   <!-- articles -->
-  <div class="articles-bar">
-      <div class="ui divided items">
-      <?php articles_list(); ?>
+  <div class="ui fluid articles-bar">
+      <div class="ui divided fluid articles_wrap items">
+        <?php
+          if (isset($_GET['article'])) {
+            show_article();
+          } else {
+            articles_list(); 
+          }
+        ?>
       </div>
   </div>
-  <!-- end articles -->
 
    <!-- sidebar -->
   <?php include "includes/sidebar.php"; ?> 
-<!-- end sidebar -->
     
 </section>
-<!-- </div> -->
-
