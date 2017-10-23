@@ -1,8 +1,9 @@
 <?php  
-require 'includes/config.php';
-require 'includes/topics.php';
-require 'includes/articles.php';
-require 'includes/article.php';
+require_once 'includes/config.php';
+require_once 'includes/topics.php';
+require_once 'includes/articles.php';
+require_once 'includes/article.php';
+require_once 'includes/popular_articles.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,13 +16,14 @@ require 'includes/article.php';
 	<script src="libs/jquery/dist/jquery.min.js"></script>
 	<script src="../semantic/out/semantic.min.js"></script>
   <script src="js/ui-activator.js"></script>
+  <!-- <script src="js/ajax.js"></script> -->
 
 </head>
 <?php include "includes/header.php"; ?>
 <section class="content">
   <!-- categories -->
   <div class="categories">
-      <div class="ui small secondary fluid vertical menu">
+      <div class="ui small secondary vertical menu">
         <?php 
           $topics = [];
           topics_list(); 

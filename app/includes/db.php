@@ -10,5 +10,13 @@ try {
 	echo $error_connect = '<br><br><br>Подключение не удалось:' . $e->getMessage();
 	exit();
 }
-
+function topic($article) {
+	global $topics;
+	foreach ($topics as $topic) {
+  		if ($topic['id'] == $article['topic_id']) {
+  			echo $topic['topic_name'];
+  			break;
+  		}
+  	}
+}
 ?>

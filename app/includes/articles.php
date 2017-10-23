@@ -5,9 +5,9 @@ function articles_list() {
 	// var_dump($topics);
 	if (isset($_GET['topic']) && $_GET['topic'] != 'all') {
 		$topic_get = $_GET['topic'];
-		$sql = "SELECT `id`,`title`,`image`,`text`,`topic_id`,`pubdate`,`views` FROM articles WHERE topic_id = :topic";
+		$sql = "SELECT `id`,`title`,`image`,`text`,`topic_id`,`pubdate`,`views` FROM articles WHERE topic_id = :topic ORDER BY `pubdate`";
 	} else {
-		$sql = "SELECT `id`,`title`,`image`,`text`,`topic_id`,`pubdate`,`views` FROM articles";
+		$sql = "SELECT `id`,`title`,`image`,`text`,`topic_id`,`pubdate`,`views` FROM articles ORDER BY `pubdate`";
 	}
 	$sth = $dbh->prepare($sql);
 	$sth->bindParam(':topic', $topic_get, PDO::PARAM_INT);

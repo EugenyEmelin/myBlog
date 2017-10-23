@@ -44,4 +44,8 @@
        </div>
      </div>
    </div>
+   <div class="ui feed">
+      <h5>Популярные статьи</h5>
+     <?php popular_articles('views', 5) ?>
+   </div>
   </div>
