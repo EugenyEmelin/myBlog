@@ -34,44 +34,10 @@ function show_article() {
 	</div>	
 
 	<!-- Комментарии -->
-	<div class="ui comments">
-  		<h3 class="ui header">Комментарии</h3>
-
-  		<form class="ui reply form">
-  		  <div class="field">
-			<div class="field">
-  		  		<label>Ваше имя</label>
-  		  		<input type="text" name="guestname" placeholder="Ваше имя">
-			</div>
-			<div class="field">
-				<label>Email</label>
-				<input type="text" name="guestemail" placeholder="email">
-			</div>
-  		    <textarea></textarea>
-  		  </div>
-  		  <div class="ui blue submit icon button">Отправить комментарий</div>
-  		</form>
-		<br>
-  		<div class="comment">
-  		  <a class="avatar">
-  		    <img src="img/elliot.jpg">
-  		  </a>
-  		  <div class="content">
-  		    <a class="author">Matt</a>
-  		    <div class="metadata">
-  		      <span class="date">Сегодня вечером в 5:42</span>
-  		    </div>
-  		    <div class="text">Как артистично! </div>
-  		    <div class="actions">
-  		      <a class="reply">Reply</a>
-  		    </div>
-  		  </div>
-  		</div>
-  		
-	</div>
 	
 
 <?php
+include "comments.php";
 }
 // show_articles();
 ?>
