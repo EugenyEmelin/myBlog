@@ -1,6 +1,6 @@
 <?php  
 require_once "db.php";
-
+// require_once "comments.php";	
 function show_article() {
 	global $dbh, $topics, $config;
 	$article_id = $_GET['article'];
@@ -34,10 +34,8 @@ function show_article() {
 	</div>	
 
 	<!-- Комментарии -->
-	
-
 <?php
-include "comments.php";
+	include "comments.php";
+	// comments();
 }
-// show_articles();
 ?>

@@ -16,7 +16,7 @@ require_once 'includes/popular_articles.php';
 	<script src="libs/jquery/dist/jquery.min.js"></script>
 	<script src="../semantic/out/semantic.min.js"></script>
   <script src="js/ui-activator.js"></script>
-  <!-- <script src="js/ajax.js"></script> -->
+  <script src="js/ajax.js"></script>
 
 </head>
 <?php include "includes/header.php"; ?>

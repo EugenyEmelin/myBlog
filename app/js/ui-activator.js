@@ -1,5 +1,5 @@
 window.onload = function() {
-	$('.ui.dropdown').dropdown('hide')
+	$('.ui.dropdown').dropdown()
 
 	$('.tag.example .ui.dropdown').dropdown({
     	allowAdditions: true
