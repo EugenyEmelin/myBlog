@@ -26,9 +26,6 @@ $article_id = $_GET['article'];
 	<br>
 	<div class="article_comments">
 	<?php  
-	// comments();
-	// function comments() {
-		// global $dbh;
 		$sql = "SELECT *
 				FROM comments
 				LEFT JOIN users
@@ -61,9 +58,8 @@ $article_id = $_GET['article'];
   			</div>
 			<?php
 		}
-	// }
 	?>
-  	</div>
+  		</div>
 	</div>
 <?php
 ?>
