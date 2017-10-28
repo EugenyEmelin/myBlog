@@ -1,6 +1,5 @@
 <?php
 require_once "db.php";
-
 $sql = "SELECT * 
 		FROM comments
 		LEFT JOIN users
@@ -11,6 +10,9 @@ $sql = "SELECT *
 		LIMIT 6";
 $sth = $dbh->prepare($sql);
 $sth->execute();
+?>
+<h5>Последние комментарии</h5>
+<?php
 while ($comment = $sth->fetch(PDO::FETCH_ASSOC)) {
 	// var_dump($comment);
 	?>
@@ -24,9 +26,9 @@ while ($comment = $sth->fetch(PDO::FETCH_ASSOC)) {
   	  	    <span class="date"><a href=?article=<?php echo $comment['article_id']?> ><i class="share icon"></i><?php echo $comment['title'] ?></a></span>
   	  	  </div>
   	  	  <div class="text"><?php echo $comment['text']; ?></div>
-  	  	  <div class="actions">
+<!--   	  	  <div class="actions">
   	  	    <a class="reply">Ответить</a>
-  	  	  </div>
+  	  	  </div> -->
   	  	</div>
   	</div>
 	<?php

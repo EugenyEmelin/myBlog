@@ -10,6 +10,7 @@ require_once 'includes/popular_articles.php';
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 	<title><?php echo $config['title']; ?></title>
 	<link rel="stylesheet" type="text/css" href="../semantic/out/semantic.min.css">
   <link rel="stylesheet" href="css/app.css">

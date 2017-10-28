@@ -1,27 +1,54 @@
 <?php
 require_once "db.php";
 $article_id = $_GET['article'];
+$entered = false;
 ?>
+
 <div class="ui comments">
-  	<h3 class="ui header">Комментарии</h3>
+  	<h3 class="ui dividing header">Комментарии</h3>
 	<!-- Form -->
-  	<form class="ui reply form" method="POST" id="comment_guest_form">
-  	  <div class="field">
-  	 	 <div class="two fields">
-			<div class="field">
-  	  			<label>Ваше имя</label>
-  	  			<input type="text" name="guest_name" placeholder="Ваше имя" id="guest_name">
+	<?php 
+	if (!$entered) { //для гостей выводить такую форму
+	?>
+  		<form class="ui reply form" method="POST" id="comment_guest_form">
+  		  <div class="field">
+  		 	 <div class="two fields">
+				<div class="field">
+  		  			<label>Ваше имя</label>
+  		  			<input type="text" name="guest_name" placeholder="Ваше имя" id="guest_name">
+				</div>
+				<div class="field">
+					<label>Email</label>
+					<input type="text" name="guest_email" placeholder="email" id="guest_email">
+				</div>
 			</div>
-			<div class="field">
-				<label>Email</label>
-				<input type="text" name="guest_email" placeholder="email" id="guest_email">
+  		    <textarea placeholder="Оставьте комментарий" name="comment_text" id="comment_text"></textarea>
+  		  </div>
+  		  <div class="ui submit icon button comment_guest_submit">Отправить комментарий</div>
+  		  <input type="hidden" name="article_id" value="<?php echo $article_id; ?> ">
+  		</form>
+  	<?php
+  	} else { //для пользователей выводить такую форму
+  	?>
+  		<form class="ui reply form" method="POST" id="comment_user_form">
+  		<div class="two fields">	
+			<div class="field user_avatar_comment">
+				<a href="" class="avatar">
+					<img src="img/elliot.jpg">
+				</a>
+			</div>
+			<div class="field user_text_area">
+				<textarea name="comment_text" id="comment_text"></textarea>
 			</div>
 		</div>
-  	    <textarea placeholder="Оставьте комментарий" name="comment_text" id="comment_text"></textarea>
-  	  </div>
-  	  <div class="ui submit icon button comment_guest_submit">Отправить комментарий</div>
-  	  <input type="hidden" name="article_id" value="<?php echo $article_id; ?> ">
-  	</form>
+		<div class="button_wrap">
+			<div class="ui submit icon right floated button comment_user_submit">Отправить комментарий</div>	
+		</div>
+  		<input type="hidden" name="article_id" value="<?php echo $article_id; ?> ">
+  		</form>
+  	<?php
+  	}
+  	?>
   	<!-- Comments -->
 	<br>
 	<div class="article_comments">

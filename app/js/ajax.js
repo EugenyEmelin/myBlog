@@ -31,22 +31,36 @@ window.onload = function() {
 	// })
 
 	//Отправка комментариев
-	$(".comment_guest_submit").on("click", function() {
-		let formData = $("#comment_guest_form").serialize()
-		console.log(formData)
-		let req = $.ajax({
-			url: "includes/guest_comment.php",
-			method: 'POST',
-			data: formData
-		}).done(function() {
-			let name = $("#guest_name").val(),
-				email = $("#guest_email").val(),
-				text = $("#comment_text").val()
-			$(".article_comments").prepend("<div class=\"comment\"><a class=\"avatar\"><img src=\"img/elliot.jpg\"></a><div class=\"content\"><a class=\"author\">"+name+"</a><div class=\"metadata\"><span class=\"date\"></span></div><div class=\"text\">"+text+"</div><div class=\"actions\"><a class=\"reply\">Reply</a></div></div></div>")
-			$("#guest_name").val("") 
-			$("#guest_email").val("") 
-			$("#comment_text").val("")
+		$(".comment_guest_submit").on("click", function() {
+			let formData = $("#comment_guest_form").serialize()
+			let req = $.ajax({
+				url: "includes/guest_comment.php",
+				method: 'POST',
+				data: formData
+			}).done(function() {
+				let name = $("#guest_name").val()+" (Гость)",
+					email = $("#guest_email").val(),
+					text = $("#comment_text").val(),
+					img = "elliot.jpg",
+					date = 'Только что'
+				$(".article_comments").prepend("<div class=\"comment\"><a class=\"avatar\"><img src=\"img/"+img+"\"></a><div class=\"content\"><a class=\"author\">"+name+"</a><div class=\"metadata\"><span class=\"date\">"+date+"</span></div><div class=\"text\">"+text+"</div><div class=\"actions\"><a class=\"reply\">Reply</a></div></div></div>")
+				$("#guest_name").val("") 
+				$("#guest_email").val("") 
+				$("#comment_text").val("")
+			})
 		})
-	})
+
+		$(".comment_user_submit").on("click", function() {
+			let formData = $("#comment_user_form").serialize()
+			let req = $.ajax({
+				url: "includes/user_comment.php",
+				method: 'POST',
+				data: formData
+			}).done(function() {
+				let text = $("#comment_text").val()
+
+			})
+		})
+
 
 }
