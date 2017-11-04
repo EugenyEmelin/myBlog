@@ -54,13 +54,26 @@ window.onload = function() {
 			let formData = $("#comment_user_form").serialize()
 			let req = $.ajax({
 				url: "includes/user_comment.php",
-				method: 'POST',
+				method: "POST",
 				data: formData
 			}).done(function() {
 				let text = $("#comment_text").val()
 
 			})
 		})
+		//modals
+		$('#sign_up_modal').modal('attach events', '#sign_up_button', 'show')
+		$('#reg_modal').modal('attach events', '#reg_button', 'show')
 
-
+		$('#registration').on("click", function() {
+			let formData = $("#registration_form").serialize()
+			let req = $.ajax({
+				url: "includes/registration.php",
+				method: "POST",
+				data: formData
+			}).done(function(data) {
+				$('#reg_modal').modal('hide')
+				console.log(data)
+			})
+		})
 }

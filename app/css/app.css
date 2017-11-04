@@ -176,3 +176,17 @@ body {
 .button_wrap {
   width: 100%;
   height: 40px !important; }
+
+#sign_up_button, #reg_button {
+  margin-right: 15px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+
+#sign_up_button {
+  color: #444; }
+
+#reg_button {
+  color: cornflowerblue; }
