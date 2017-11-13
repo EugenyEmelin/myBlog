@@ -5,7 +5,7 @@ $user = $config['db']['username'];
 $password = $config['db']['password'];
 
 try {
-	$dbh = new PDO($dsn, $user, $password);
+	$dbh = new PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_FOUND_ROWS => true));
 } catch (PDOException $e) {
 	echo $error_connect = '<br><br><br>Подключение не удалось:' . $e->getMessage();
 	exit();

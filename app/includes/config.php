@@ -1,4 +1,11 @@
-<?php 
+<?php
+ session_start();
+
+ if (!isset($_SESSION['user_id'])) { //Если переменные сессий не имеют значений
+   if (isset($_COOKIE['user_id'])) { #Если в куки записан id пользователя
+     $_SESSION['user_id'] = $_COOKIE['user_id']; #присваиваем переменной сессии аналогичное значение куки
+   }
+ }
 
 $config = [
 	'main_page' => 'index.php',

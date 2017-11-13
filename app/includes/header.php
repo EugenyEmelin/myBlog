@@ -16,63 +16,80 @@ $isAuthorized = isset($_SESSION['user_id']) ? true : false;
       <div class="results"></div>
     </div>
   </div>
-  <?php 
-  if ($isAuthorized) {
-  ?>
-  <div class="header_right_wrape">
-    <div class="header-item"><i class="large grey alarm icon"></i> </div>
-    <div class="header-item"><span>Username<i class="big grey user icon"></i></span></div>
-    <div class="header-item"><i class="large grey ellipsis vertical icon"></i></div>
-  </div>
-  <?php 
-  } else {
-  ?>
-    <div class="header_right_wrape">
-      <i class="add user large icon" id="reg_button"></i>
-      <i class="sign in big icon" id="sign_up_button"></i>
-    </div>
 
+  <div class="header_right_wrape">
+  <?php 
+  if ($isAuthorized) { //для авторизованных пользователей
+  ?>
+    <div class="user_header_interface">
+      <div class="header-item"><i class="large grey alarm icon"></i> </div>
+      <div class="header-item"><span>Username<i class="big grey user icon"></i></span></div>
+      <div class="header-item"><i class="large grey ellipsis vertical icon"></i></div>
+    </div>
+  <?php 
+  } else { //для гостей
+  ?>
+  <div class="guest_header_interface">
+      <i class="add user large icon" id="reg_button"></i>
+      <i class="sign in big icon" id="login_button"></i>
+   </div>
   <?php
   }
   ?>
-
-<div class="ui modal" id="sign_up_modal">
-  <div class="header">Вход</div>
-  <div class="content">
-    <p>ssssssssss</p>
-    <p>aaaaaaaaaaaa</p>
-    <p>ddddddddddddd</p>
   </div>
-</div>
-<div class="ui tiny modal" id="reg_modal">
-  <div class="header">Регистрация</div>
-  <div class="content">
-    <form action="" class="ui form" id="registration_form">
-      <div class="field">
-        <div class="two fields">
-          <div class="field">
-            <input type="text" name="user_fname" placeholder="Ваше имя">
-          </div>
-          <div class="field">
-            <input type="text" name="user_lname" placeholder="Фамилия">
+
+  <div class="ui mini modal" id="login_modal">
+    <div class="header">Вход</div>
+    <div class="content">
+      <form class="ui form" id="login_form">
+        <div class="field">
+          <input type="email" name="user_log_email" placeholder="Email">
+        </div>
+        <div class="field">
+          <input type="password" name="user_log_password" placeholder="Пароль">
+        </div>
+        <br>
+        <!-- <div class="actions"> -->
+        <div class="ui primary approve button" id="login">Войти</div>
+        <div class="ui checkbox">
+          <input type="checkbox" name="remember" value="me">
+          <label>Запомнить</label>
+        </div>
+        <div class="ui error message"></div>
+        <!-- </div> -->
+      </form>
+    </div>
+  </div>
+  
+  <div class="ui tiny modal" id="reg_modal">
+    <div class="header">Регистрация</div>
+    <div class="content">
+      <form class="ui form" id="registration_form">
+        <div class="field">
+          <div class="two fields">
+            <div class="field">
+              <input type="text" name="user_fname" placeholder="Ваше имя">
+            </div>
+            <div class="field">
+              <input type="text" name="user_lname" placeholder="Фамилия">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="field">
-        <input type="email" name="user_email" placeholder="Email">
-      </div>
-      <div class="field">
-        <input type="password" name="user_password" placeholder="Пароль">
-      </div>
-      <div class="field">
-        <input type="password" name="re_user_password" placeholder="Введите пароль ещё раз">
-      </div>
-      <br>
-      <!-- <div class="actions"> -->
-      <div class="ui primary approve button" id="registration">Регистрация</div>
-      <div class="ui error message"></div>
-      <!-- </div> -->
-    </form>
+        <div class="field">
+          <input type="email" name="user_email" placeholder="Email">
+        </div>
+        <div class="field">
+          <input type="password" name="user_password" placeholder="Пароль">
+        </div>
+        <div class="field">
+          <input type="password" name="re_user_password" placeholder="Введите пароль ещё раз">
+        </div>
+        <br>
+        <!-- <div class="actions"> -->
+        <div class="ui primary approve button" id="registration">Регистрация</div>
+        <div class="ui error message"></div>
+        <!-- </div> -->
+      </form>
+    </div>
   </div>
-</div>
 </header>

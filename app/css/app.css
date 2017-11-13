@@ -21,7 +21,22 @@
 body {
   margin: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
+          box-sizing: border-box;
+  -webkit-transition: 12s !important;
+  -o-transition: 12s !important;
+  transition: 12s !important; }
+  body::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px; }
+  body::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+            border-radius: 5px;
+    background: lightsteelblue;
+    -webkit-transition: color .2s ease;
+    -o-transition: color .2s ease;
+    transition: color .2s ease; }
+  body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.15) !important; }
 
 .main-header {
   background-color: #fcfcfc;
@@ -47,7 +62,7 @@ body {
   height: 45px;
   width: 100%; }
 
-.header_left_wrape, .header_right_wrape {
+.header_left_wrape, .user_header_interface, .guest_header_interface {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -70,7 +85,7 @@ body {
   .header_left_wrape .header-item .input {
     margin: 0 20px; }
 
-.header_right_wrape .header-item {
+.user_header_interface .header-item, .guest_header_interface .header-item {
   margin: 0 5px; }
 
 #blogname {
@@ -177,7 +192,7 @@ body {
   width: 100%;
   height: 40px !important; }
 
-#sign_up_button, #reg_button {
+#login_button, #reg_button {
   margin-right: 15px;
   cursor: pointer;
   -webkit-user-select: none;
@@ -185,8 +200,14 @@ body {
       -ms-user-select: none;
           user-select: none; }
 
-#sign_up_button {
+#login_button {
   color: #444; }
 
 #reg_button {
   color: cornflowerblue; }
+
+#reg_modal .content, #login_modal .content {
+  margin-top: 25px !important; }
+
+.modals .checkbox {
+  margin-left: 10px !important; }

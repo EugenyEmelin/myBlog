@@ -10,7 +10,7 @@ $entered = false;
 	<?php 
 	if (!$entered) { //для гостей выводить такую форму
 	?>
-  		<form class="ui reply form" method="POST" id="comment_guest_form">
+  		<form class="ui reply form" id="comment_guest_form">
   		  <div class="field">
   		 	 <div class="two fields">
 				<div class="field">
@@ -26,6 +26,7 @@ $entered = false;
   		  </div>
   		  <div class="ui submit icon button comment_guest_submit">Отправить комментарий</div>
   		  <input type="hidden" name="article_id" value="<?php echo $article_id; ?> ">
+  		  <div class="ui tiny error message"></div>
   		</form>
   	<?php
   	} else { //для пользователей выводить такую форму
@@ -42,9 +43,14 @@ $entered = false;
 			</div>
 		</div>
 		<div class="button_wrap">
-			<div class="ui submit icon right floated button comment_user_submit">Отправить комментарий</div>	
+			<div class="ui submit icon right floated button comment_user_submit" 
+				data-userid="<?php $_SESSION['user_id'] ?? ''?>" 
+				data-username="<?php $_SESSION['user_name'] ?? ''?>">
+				Отправить комментарий
+			</div>	
 		</div>
   		<input type="hidden" name="article_id" value="<?php echo $article_id; ?> ">
+  		<input type="hidden" name="user_id" value="<?php echo $user_id ?? ''; ?> ">
   		</form>
   	<?php
   	}
@@ -66,7 +72,7 @@ $entered = false;
 			$name = $comment['nickname'] != null ? $comment['nickname'].' (Гость)' : $comment['Имя'];
 			$pubdate = $comment['pubdate'];
 			$text = $comment['text'];
-			$avatar = $comment['Аватар'] ?? 'elliot.jpg';
+			$avatar = $comment['Аватар'] ?? 'default.png';
 			?>
 			<div class="comment">
   	  			<a class="avatar">

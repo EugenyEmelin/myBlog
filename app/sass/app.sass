@@ -1,8 +1,24 @@
 @import "gridCentered"
+$scroll-track-color: lightsteelblue
+
 body 
 	margin: 0	
 	box-sizing: border-box
+	transition: 12s !important
 
+	&::-webkit-scrollbar 
+    -webkit-appearance: none
+    width: 10px
+
+	&::-webkit-scrollbar-thumb 
+    border-radius: 5px
+    // background: rgba(0,0,0,.25)
+    background: $scroll-track-color
+    -webkit-transition: color .2s ease
+    transition: color .2s ease
+
+	&::-webkit-scrollbar-track 
+    background: rgba(0,0,0,.15) !important
 
 .main-header
 	background-color: #fcfcfc
@@ -17,7 +33,7 @@ body
 	height: 45px
 	width: 100%
 
-.header_left_wrape, .header_right_wrape
+.header_left_wrape, .user_header_interface, .guest_header_interface
 	// padding: 0 6px
 	display: flex
 	flex-wrap: nowrap
@@ -29,7 +45,7 @@ body
 		margin: 0 15px
 		.input
 			margin: 0 20px
-.header_right_wrape
+.user_header_interface, .guest_header_interface
 	.header-item
 		margin: 0 5px
 
@@ -136,5 +152,10 @@ body
 #reg_button
 	color: cornflowerblue
 
-#reg_modal, #sign_modal
-	// width: 50% !important
+#reg_modal, #sign_up_modal
+	.content
+		margin-top: 25px !important
+
+.modals
+	.checkbox
+		margin-left: 10px !important

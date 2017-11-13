@@ -15,9 +15,9 @@ require_once 'includes/popular_articles.php';
 	<link rel="stylesheet" type="text/css" href="../semantic/out/semantic.min.css">
   <link rel="stylesheet" href="css/app.css">
 	<script src="libs/jquery/dist/jquery.min.js"></script>
-	<script src="../semantic/out/semantic.min.js"></script>
-  <script src="js/ui-activator.js"></script>
   <script src="js/ajax.js"></script>
+  <script src="../semantic/out/semantic.min.js"></script>
+  <!-- <script src="js/ui-activator.js"></script> -->
 
 </head>
 <?php include "includes/header.php"; ?>
