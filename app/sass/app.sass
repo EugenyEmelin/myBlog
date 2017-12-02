@@ -1,5 +1,6 @@
 @import "gridCentered"
 $scroll-track-color: lightsteelblue
+$checked-color: rgba(0,0,0,0.05)
 
 body 
 	margin: 0	
@@ -33,12 +34,13 @@ body
 	height: 45px
 	width: 100%
 
-.header_left_wrape, .user_header_interface, .guest_header_interface
+.header_left_wrape, .user_header_interface, .guest_header_interface, .header_right_wrape
 	// padding: 0 6px
 	display: flex
 	flex-wrap: nowrap
 	flex-direction: row
 	align-items: center
+	height: 100%
 
 .header_left_wrape
 	.header-item
@@ -47,8 +49,9 @@ body
 			margin: 0 20px
 .user_header_interface, .guest_header_interface
 	.header-item
-		margin: 0 5px
-
+		span
+			
+		
 #blogname
 	font-weight: bold
 	line-height: 2.5
@@ -141,12 +144,12 @@ body
 	width: 100%
 	height: 40px !important
 
-#sign_up_button, #reg_button
+#login_button, #reg_button
 	margin-right: 15px
 	cursor: pointer
 	user-select: none
 
-#sign_up_button
+#login_button
 	color: #444
 
 #reg_button
@@ -159,3 +162,28 @@ body
 .modals
 	.checkbox
 		margin-left: 10px !important
+
+#user-item
+	cursor: pointer
+	height: 100%
+	display: flex
+	align-items: center
+	padding: 0 10px 0 20px
+	user-select: none
+	&:hover
+		background-color: $checked-color
+
+.mini-profile
+	position: absolute !important
+	top: 32px !important
+	right: 8px !important
+	box-shadow: 0 0 15px #ccc !important
+	// display: none
+	.card-content
+		padding: 15px
+
+.active
+	display: block !important
+
+.user_mini_avatar
+	margin-left: .25em

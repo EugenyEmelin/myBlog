@@ -1,14 +1,14 @@
 <?php
 require_once "db.php";
 $article_id = $_GET['article'];
-$entered = false;
+// $entered = false;
 ?>
 
 <div class="ui comments">
   	<h3 class="ui dividing header">Комментарии</h3>
 	<!-- Form -->
 	<?php 
-	if (!$entered) { //для гостей выводить такую форму
+	if (!isset($_SESSION['user_id'])) { //для гостей выводить такую форму
 	?>
   		<form class="ui reply form" id="comment_guest_form">
   		  <div class="field">
@@ -44,8 +44,8 @@ $entered = false;
 		</div>
 		<div class="button_wrap">
 			<div class="ui submit icon right floated button comment_user_submit" 
-				data-userid="<?php $_SESSION['user_id'] ?? ''?>" 
-				data-username="<?php $_SESSION['user_name'] ?? ''?>">
+				data-userid="<?php echo $_SESSION['user_id'] ?? '' ?>"
+				data-articleid="<?php echo $article_id ?? '' ?>">
 				Отправить комментарий
 			</div>	
 		</div>
@@ -69,7 +69,7 @@ $entered = false;
 		$sth->bindParam(':article_id', $article_id, PDO::PARAM_INT);
 		$sth->execute();
 		while ($comment = $sth->fetch(PDO::FETCH_ASSOC)) {
-			$name = $comment['nickname'] != null ? $comment['nickname'].' (Гость)' : $comment['Имя'];
+			$name = $comment['nickname'] != null ? $comment['nickname'].' (Гость)' : $comment['Имя']. ' '. $comment['Фамилия'];
 			$pubdate = $comment['pubdate'];
 			$text = $comment['text'];
 			$avatar = $comment['Аватар'] ?? 'default.png';

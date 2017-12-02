@@ -1,9 +1,9 @@
-<?php  
-require_once 'includes/config.php';
-require_once 'includes/topics.php';
-require_once 'includes/articles.php';
-require_once 'includes/article.php';
-require_once 'includes/popular_articles.php';
+<?php
+require_once 'config.php';
+require_once 'topics.php';
+require_once 'articles.php';
+require_once 'article.php';
+require_once 'popular_articles.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ require_once 'includes/popular_articles.php';
   <!-- <script src="js/ui-activator.js"></script> -->
 
 </head>
-<?php include "includes/header.php"; ?>
+<?php include "header.php"; ?>
 <section class="content">
   <!-- categories -->
   <div class="categories">
@@ -46,6 +46,6 @@ require_once 'includes/popular_articles.php';
   </div>
 
    <!-- sidebar -->
-  <?php include "includes/sidebar.php"; ?> 
+  <?php include "sidebar.php"; ?> 
     
 </section>

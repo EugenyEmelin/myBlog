@@ -22,9 +22,13 @@ $isAuthorized = isset($_SESSION['user_id']) ? true : false;
   if ($isAuthorized) { //для авторизованных пользователей
   ?>
     <div class="user_header_interface">
-      <div class="header-item"><i class="large grey alarm icon"></i> </div>
-      <div class="header-item"><span>Username<i class="big grey user icon"></i></span></div>
-      <div class="header-item"><i class="large grey ellipsis vertical icon"></i></div>
+      <!-- <div class="header-item"><i class="large grey alarm icon"></i> </div> -->
+      <div class="header-item" id="user-item">
+        <span><?php echo $_SESSION['user_name'] ?? 'username' ?>
+          <img class="ui avatar image user_mini_avatar" src="img/<?php echo $_SESSION['user_img'] ?? 'default.png'?>">
+        </span>
+      </div>
+      <?php include "mini_profile.php"; ?>
     </div>
   <?php 
   } else { //для гостей
