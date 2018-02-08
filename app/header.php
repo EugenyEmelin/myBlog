@@ -47,9 +47,11 @@ $isAuthorized = isset($_SESSION['user_id']) ? true : false;
     <div class="content">
       <form class="ui form" id="login_form">
         <div class="field">
+          <label>E-mail</label>
           <input type="email" name="user_log_email" placeholder="Email">
         </div>
         <div class="field">
+          <label>Пароль</label>
           <input type="password" name="user_log_password" placeholder="Пароль">
         </div>
         <br>
@@ -72,27 +74,35 @@ $isAuthorized = isset($_SESSION['user_id']) ? true : false;
         <div class="field">
           <div class="two fields">
             <div class="field">
+              <label>Имя</label>
               <input type="text" name="user_fname" placeholder="Ваше имя">
             </div>
             <div class="field">
+              <label>Фамилия</label>
               <input type="text" name="user_lname" placeholder="Фамилия">
             </div>
           </div>
         </div>
         <div class="field">
+          <label>Email</label>
           <input type="email" name="user_email" placeholder="Email">
         </div>
         <div class="field">
-          <input type="password" name="user_password" placeholder="Пароль">
+          <label>Пароль</label>
+          <input type="password" name="user_password" placeholder="Пароль (мин. 6 символов)">
         </div>
         <div class="field">
+          <label>Повторите пароль</label>
           <input type="password" name="re_user_password" placeholder="Введите пароль ещё раз">
         </div>
-        <br>
-        <!-- <div class="actions"> -->
-        <div class="ui primary approve button" id="registration">Регистрация</div>
+        <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox" tabindex="0" class="hidden">
+            <label>Согласен с <a><i>условиями</i></a></label>
+          </div>
+        </div>
+        <div class="ui primary submit button" id="registration">Регистрация</div>
         <div class="ui error message"></div>
-        <!-- </div> -->
       </form>
     </div>
   </div>

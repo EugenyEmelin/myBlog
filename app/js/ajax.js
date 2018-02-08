@@ -104,18 +104,6 @@ window.onload = function() {
     	$('#reg_modal').modal('attach events', '#reg_button', 'show')
     }
 
-    $('#registration').on("click", function() {
-        let formData = $("#registration_form").serialize()
-        let req = $.ajax({
-            url: "registration.php",
-            method: "POST",
-            data: formData
-        }).done(function(data) {
-            $('#registration_form input').val("")
-            $('#reg_modal').modal('hide')
-            console.log(data)
-        })
-    })   
     $('#login').on("click", function() {
         let formData = $("#login_form").serialize()
         let req = $.ajax({
@@ -139,6 +127,87 @@ window.onload = function() {
     	// document.querySelector('.mini-profile').classList.toggle('active')
     	$('.mini-profile').toggle()
     })
+    $('#registration_form').form({
+    	inline: true,
+    	on: 'blur',
+    	fields: {
+    		user_fname: {
+    			identifier: 'user_fname',
+    			rules: [
+    				{
+    					type: 'empty',
+    					prompt: 'Введите имя'
+    				},
+    				{
+    					type: 'maxLength[18]',
+    					prompt: 'Имя не должно превышать 18 символов'
+    				}
+    			]
+    		},
+    		user_lname: {
+    			identifier: 'user_lname',
+    			rules: [
+    				{
+    					type: 'empty',
+    					prompt: 'Введите фамилию'
+    				}
+    			]
+    		},
+    		user_email: {
+    			identifier: 'user_email',
+    			rules: [
+    				{
+    					type: 'empty',
+    					prompt: 'Введите email'
+    				},
+    				{
+    					// type: 'regExp[/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/]',
+    					type: 'regExp[/^[a-z0-9_]+([\._-]?[a-z0-9_-]+)*@[a-z0-9_-]+([\._-]?[a-z0-9_]+)*(\.[a-z0-9]{2,4})+$/]',
+    					prompt: 'Неверный формат email'
 
+    				}
+    			]
+    		},
+    		user_password: {
+    			identifier: 'user_password',
+    			rules: [
+    				{
+    					type: 'empty',
+    					prompt: 'Введите пароль'
+    				},
+    				{
+    					type: 'minLength[6]',
+    					prompt: 'Минимум 6 символов'
+    				}
+    			]
+    		},
+    		re_user_password: {
+    			identifier: 're_user_password',
+    			rules: [
+    				{
+    					type: 'empty',
+    					prompt: 'Повторите пароль'
+    				},
+    				{
+    					type: 'match[user_password]',
+    					prompt: 'Пароли не совпадают'
+    				}
+    			]
+    		}
+
+    	}
+    })
+    $('#registration').on("click", function() {
+        let formData = $("#registration_form").serialize()
+        let req = $.ajax({
+            url: "registration.php",
+            method: "POST",
+            data: formData
+        }).done(function(data) {
+            $('#registration_form input').val("")
+            // $('#reg_modal').modal('hide')
+            console.log(data)
+        })
+    })   
 
 }

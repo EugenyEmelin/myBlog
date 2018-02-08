@@ -2,7 +2,7 @@
 require_once "db.php";
 function popular_articles($crit, $limit) {
 	global $dbh, $topics;
-	$sql = "SELECT `id`,`title`,`image`,`article_text`,`topic_id`,`pubdate`,`views` FROM articles ORDER BY $crit LIMIT $limit";
+	$sql = "SELECT `id`,`title`,`image`,`article_text`,`topic_id`,`pubdate`,`views` FROM articles ORDER BY $crit DESC LIMIT $limit";
 	$sth = $dbh->prepare($sql);
 	$sth->execute();
 	while ($article = $sth->fetch(PDO::FETCH_ASSOC)) {

@@ -207,9 +207,6 @@ body {
 #reg_modal .content, #sign_up_modal .content {
   margin-top: 25px !important; }
 
-.modals .checkbox {
-  margin-left: 10px !important; }
-
 #user-item {
   cursor: pointer;
   height: 100%;
@@ -243,3 +240,9 @@ body {
 
 .user_mini_avatar {
   margin-left: .25em; }
+
+.modal .content {
+  margin-top: 25px !important; }
+
+#registration {
+  margin-top: 25px; }
